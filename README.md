@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project is a full-stack web application developed using React for the frontend and Express and Node.js for the backend. The backend is deployed on a separate DigitalOcean Droplet. The application includes features such as a signup page, login page, add expenses page, view expenses page, budget management page, and a visualization page with line chart, pie chart, bar chart, and bubble chart options on expenses. Automated testing is implemented using Cypress for end-to-end tests and Applitools for visual regression tests.
 
-In the project directory, you can run:
+## Technology Stack
 
-### `npm start`
+- **Frontend:**
+  - React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Backend:**
+  - Express
+  - Node.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+### Signup Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The signup page allows users to create a new account.
+- Users can provide their first name, last name, email, password, and phone number to sign up.
 
-### `npm run build`
+### Login Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The login page enables users to log in to their accounts.
+- Users need to enter their email and password to access the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Add Expenses Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The add expenses page allows users to record their expenses.
+- Users can specify the date, category, and amount of the expense.
 
-### `npm run eject`
+### View Expenses Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- The view expenses page displays a list of recorded expenses.
+- Users can view their expenses and have the option to delete any entry.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Budget Management Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- The budget management page allows users to add, view, and delete budgets.
+- Users can define budget categories and set the budget amount for each category.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Visualization Page
 
-## Learn More
+- The visualization page allows users to analyze their expenses with various chart options.
+- Users can select a month and visualize their data using line charts, pie charts, bar charts, and bubble charts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project includes automated testing using Cypress for end-to-end tests and Applitools for visual regression tests.
 
-### Code Splitting
+### End-to-End Tests with Cypress
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Two end-to-end tests are implemented using Cypress.
+- These tests cover the signup process, login functionality, and the addition and deletion of expenses.
 
-### Analyzing the Bundle Size
+### Visual Regression Tests with Applitools
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- One visual regression test is performed using Applitools.
+- This test ensures that the application's visual elements remain consistent across updates.
 
-### Making a Progressive Web App
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To get started with the project, follow these steps:

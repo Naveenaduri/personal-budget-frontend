@@ -33,7 +33,7 @@ function AddExpenses() {
                 if (error.response.status === 401) {
                     localStorage.removeItem('token');
                     alert("Token Expired!! You'll be logged out now.")
-                    window.location.href = 'http://localhost:3000/login';
+                    window.location.href = 'http://192.241.143.128/login';
                 } else if (error.response.status === 500) {
                     setServerMessage('');
                     setErrorMessage(`Failed to add expenses : ${error.response.data.error}`);
@@ -48,6 +48,12 @@ function AddExpenses() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!selectedDate || !selectedCategory.category || !expenseAmount.trim()) {
+            setServerMessage('');
+            setErrorMessage('Date, category, and expense amount are required.');
+            return;
+        }
 
         try {
             const token = localStorage.getItem('token');
@@ -90,10 +96,14 @@ function AddExpenses() {
             if (error.response.status === 401) {
                 localStorage.removeItem('token');
                 console.log('Token expired,Logging Out!!')
-                window.location.href = 'http://localhost:3000/login';
+                window.location.href = 'http://192.241.143.128/login';
             } else if (error.response.status === 500) {
                 setServerMessage('');
-                setErrorMessage(`Failed to add expenses : ${error.response.data.error}`);
+                if(error.response.data.error.includes('Duplicate Entry')){
+                    setErrorMessage(`Duplicate Entry for Expense`);
+                } else{
+                    setErrorMessage(`Failed to add expenses : ${error.response.data.error}`);
+                }
             } else {
                 setServerMessage('');
                 setErrorMessage(`Failed to fetch expense : ${error.response.data.error}`);

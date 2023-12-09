@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import * as d3 from 'd3';
 import PieChart from './PieChart';
 import Barchart from './BarChart';
 import LineChart from './LineChart';
 import LoginMenu from '../menu/loginmenu';
+import BubbleChart from './BubbleChart';
 
 const VisualizeExpenses = () => {
     const [selectedDate, setSelectedDate] = useState(null);
@@ -15,6 +15,11 @@ const VisualizeExpenses = () => {
 
     const handleDateSubmit = async (e) => {
         e.preventDefault();
+
+        if (!selectedDate) {
+            setErrorMessage('Date is required.');
+            return;
+        }
 
         try {
             const token = localStorage.getItem('token');
@@ -44,7 +49,7 @@ const VisualizeExpenses = () => {
             if (error.response.status === 401) {
                 localStorage.removeItem('token');
                 console.log('Token expired, Logging Out!!');
-                window.location.href = 'http://localhost:3000/login';
+                window.location.href = 'http://192.241.143.128/login';
             } else if (error.response && error.response.status === 500) {
                 setErrorMessage(`Failed to fetch expenses: ${error.response.data.error}`);
             }
@@ -90,17 +95,21 @@ const VisualizeExpenses = () => {
                     {/* Conditionally render visualizations or text message */}
                     {expenses.length > 0 ? (
                         <div className="row">
-                            <div className="col-md-4">
+                            <div className="col-md-6">
                                 <h3>Bar Chart</h3>
                                 <Barchart expenses={expenses} />
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-6">
                                 <h3>Pie Chart</h3>
                                 <PieChart expenses={expenses} outerRadius={100} innerRadius={0} />
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-6">
                                 <h3>Line Chart</h3>
                                 <LineChart expenses={expenses} />
+                            </div>
+                            <div className="col-md-6">
+                                <h3>Bubble Chart</h3>
+                                <BubbleChart expenses={expenses} width={400} height={400} maxRadius={50}/>
                             </div>
                         </div>
                     ) : (

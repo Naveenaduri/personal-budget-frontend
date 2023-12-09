@@ -38,11 +38,11 @@ const TokenExpirationCheck = (WrappedComponent) => {
             } catch (error) {
               console.error('Error refreshing token:', error);
               localStorage.removeItem('token');
-              window.location.href = 'http://localhost:3000/login';
+              window.location.href = 'http://192.241.143.128/login';
             }
           } else {
             localStorage.removeItem('token');
-            window.location.href = 'http://localhost:3000/login';
+            window.location.href = 'http://192.241.143.128/login';
           }
         }, timeUntilExpiration - alertTime);
 

@@ -3,12 +3,12 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {},
-    baseUrl: "http://localhost:3000",
+    baseUrl: "http://192.241.151.154:3000",
     supportFile: false,
   },
 
   integration: {
-    baseUrl: "http://localhost:3000",
+    baseUrl: "http://192.241.151.154:3000",
     // Additional integration-specific configuration
   },
 

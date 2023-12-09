@@ -12,6 +12,11 @@ function ViewExpenses() {
     const handleDateSubmit = async (e) => {
         e.preventDefault();
 
+        if (!selectedDate) {
+            setErrorMessage('Date is required.');
+            return;
+        }
+
         try {
             const token = localStorage.getItem('token');
 
@@ -40,7 +45,7 @@ function ViewExpenses() {
             if (error.response && error.response.status === 401) {
                 localStorage.removeItem('token');
                 console.log('Token expired, Logging Out!!');
-                window.location.href = 'http://localhost:3000/login';
+                window.location.href = 'http://192.241.143.128/login';
             } else if (error.response && error.response.status === 500) {
                 setErrorMessage(`Failed to fetch expenses: ${error.response.data.error}`);
             }
@@ -80,7 +85,7 @@ function ViewExpenses() {
             if (error.response && error.response.status === 401) {
                 localStorage.removeItem('token');
                 console.log('Token expired, Logging Out!!');
-                window.location.href = 'http://localhost:3000/login';
+                window.location.href = 'http://192.241.143.128/login';
             } else if (error.response && error.response.status === 500) {
                 setErrorMessage(`Failed to delete expense: ${error.response.data.error}`);
             }

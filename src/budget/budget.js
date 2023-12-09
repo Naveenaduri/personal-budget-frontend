@@ -85,6 +85,12 @@ const Budget = () => {
     };
 
     const handleAddBudget = async () => {
+        if (!newBudget.category.trim() || newBudget.budget_amount <= 0) {
+            setServerMessage('');
+            setErrorMessage('Category and budget amount are required.');
+            return;
+        }
+
         try {
             const token = localStorage.getItem('token');
 
@@ -113,10 +119,15 @@ const Budget = () => {
             if (error.response.status === 401) {
                 localStorage.removeItem('token');
                 console.log('Token expired,Logging Out!!')
-                window.location.href = 'http://localhost:3000/login';
+                window.location.href = 'http://192.241.143.128/login';
             } else if (error.response.status === 500) {
                 setServerMessage('');
-                setErrorMessage(`Failed to fetch budgets : ${error.response.data.error}`);
+                if(error.response.data.error.includes('Duplicate Entry')){
+                    setErrorMessage(`Duplicate Entry for Budget`);
+                }
+                else{
+                    setErrorMessage(`Failed to fetch budgets : ${error.response.data.error}`);
+                }
             } else {
                 setServerMessage('');
                 setErrorMessage(`Failed to fetch budgets. ${error.response.data.error}`);
@@ -144,7 +155,7 @@ const Budget = () => {
                 console.error('Error fetching budgets:', error.message);
                 if (error.response.status === 401) {
                     localStorage.removeItem('token');
-                    window.location.href = 'http://localhost:3000/login';
+                    window.location.href = 'http://192.241.143.128/login';
                 }
                 else {
                     setServerMessage('');

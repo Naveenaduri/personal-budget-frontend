@@ -63,8 +63,14 @@ function Signup() {
         setMessage('Registration successful!'); // Set success message
         // Handle any further actions, such as redirection or displaying a success message
       } catch (error) {
-        setErrors({ ...errors, server: error.response.data.error || 'Server error' });
+        if(error.response.data.error.includes('Duplicate Entry')){
+          setMessage('Registration failed. Please check the form.'); // Set error message
+          setErrors({ ...errors, server: error.response.data.error || 'Server error' });
+      } else{
         setMessage('Registration failed. Please check the form.'); // Set error message
+        setErrors({ ...errors, server: error.response.data.error || 'Server error' });
+      }
+
       }
     } else {
       console.log('Form validation failed');
