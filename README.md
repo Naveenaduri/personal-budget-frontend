@@ -64,4 +64,7 @@ The project includes automated testing using Cypress for end-to-end tests and Ap
 
 - One visual regression test is performed using Applitools and that is in cypress/integration.
 - This test ensures that the application's visual elements remain consistent across updates.
+###Two unit tests were written at backend on signup api.
+
+##Mysql Database is installed in the system where the backend is deployed.
 
