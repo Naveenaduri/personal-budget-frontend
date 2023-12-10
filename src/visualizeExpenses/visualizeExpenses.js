@@ -7,6 +7,7 @@ import Barchart from './BarChart';
 import LineChart from './LineChart';
 import LoginMenu from '../menu/loginmenu';
 import BubbleChart from './BubbleChart';
+import TokenExpirationCheck from '../TokenExpirationCheck/TokenExpirationCheck';
 
 const VisualizeExpenses = () => {
     const [selectedDate, setSelectedDate] = useState(null);
@@ -125,4 +126,4 @@ const VisualizeExpenses = () => {
     );
 }
 
-export default VisualizeExpenses;
+export default TokenExpirationCheck(VisualizeExpenses);

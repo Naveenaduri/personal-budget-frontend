@@ -1,4 +1,4 @@
-// cypress/integration/login.spec.js
+// cypress/integration/login.cy.js
 describe('Login Flow', () => {
     it('should log in a user', () => {
       cy.visit('/login'); // Update the path according to your routes

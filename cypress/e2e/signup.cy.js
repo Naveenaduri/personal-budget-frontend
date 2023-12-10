@@ -1,4 +1,4 @@
-// cypress/integration/signup.spec.js
+// cypress/integration/signup.cy.js
 
 describe('Signup Form', () => {
     var randomNumber = Math.floor(Math.random()*90000) + 10000 

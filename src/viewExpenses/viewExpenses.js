@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import LoginMenu from '../menu/loginmenu';
-
+import TokenExpirationCheck from '../TokenExpirationCheck/TokenExpirationCheck';
 function ViewExpenses() {
     const [selectedDate, setSelectedDate] = useState(null);
     const [expenses, setExpenses] = useState([]);
@@ -186,4 +186,4 @@ function ViewExpenses() {
     );
 }
 
-export default ViewExpenses;
+export default TokenExpirationCheck(ViewExpenses);

@@ -25,6 +25,12 @@ This project is a full-stack web application developed using React for the front
 - The login page enables users to log in to their accounts.
 - Users need to enter their email and password to access the application.
 
+### Token Refresh Popup
+
+- The application includes a token refresh popup for enhanced security.
+- When a user's authentication token is about to expire, a popup prompts the user to refresh their token.
+- This feature ensures a seamless user experience without requiring manual logouts or disruptions.
+
 ### Add Expenses Page
 
 - The add expenses page allows users to record their expenses.
@@ -52,13 +58,10 @@ The project includes automated testing using Cypress for end-to-end tests and Ap
 ### End-to-End Tests with Cypress
 
 - Two end-to-end tests are implemented using Cypress.
-- These tests cover the signup process, login functionality, and the addition and deletion of expenses.
+- These tests cover the signup process, login functionality that are in cypress/e2e folder.
 
 ### Visual Regression Tests with Applitools
 
-- One visual regression test is performed using Applitools.
+- One visual regression test is performed using Applitools and that is in cypress/integration.
 - This test ensures that the application's visual elements remain consistent across updates.
 
-## Getting Started
-
-To get started with the project, follow these steps:
