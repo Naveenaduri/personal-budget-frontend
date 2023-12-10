@@ -45,6 +45,10 @@ function BubbleChart(props) {
       svg.selectAll('.bubble')
         .attr('cx', d => d.x)
         .attr('cy', d => d.y);
+      svg.selectAll('.bubble-label')
+        .attr('x', (d) => d.x)
+        .attr('y', (d) => d.y)
+        .text((d) => d.categoryName);
     }
 
     const bubbles = svg
@@ -59,6 +63,17 @@ function BubbleChart(props) {
     bubbles
       .append('title')
       .text(d => `${d.categoryName}\nAmount: ${d.amount}`);
+    
+    svg.selectAll('.bubble-label')
+      .data(expenses)
+      .enter()
+      .append('text')
+      .attr('class', 'bubble-label')
+      .text((d) => d.categoryName)
+      .attr('text-anchor', 'middle')
+      .attr('alignment-baseline', 'middle')
+      .style('fill', 'black')
+      .style('font-size', '14px');
   }
 
   return <div id="bubble-container" />;
