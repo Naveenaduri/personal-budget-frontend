@@ -26,7 +26,7 @@ const TokenExpirationCheck = (WrappedComponent) => {
 
           if (userChoice) {
             try {
-              const response = await axios.post('http://134.209.223.38:3001/api/refresh-token', {
+              const response = await axios.post('http://134.209.223.38:3001/api/refreshToken', {
                 refreshToken: localStorage.getItem('token'),
               });
 
